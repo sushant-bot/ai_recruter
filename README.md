@@ -26,6 +26,19 @@ The platform combines Large Language Models (LLMs), semantic embeddings, hybrid 
 
 ---
 
+## Challenge Dataset
+
+The hackathon dataset is available under `[PUB] India_runs_data_and_ai_challenge/India_runs_data_and_ai_challenge/`.
+
+Generate and validate a submission with:
+
+```bash
+python rank.py --candidates "[PUB] India_runs_data_and_ai_challenge/India_runs_data_and_ai_challenge/candidates.jsonl" --out submission.csv
+python "[PUB] India_runs_data_and_ai_challenge/India_runs_data_and_ai_challenge/validate_submission.py" submission.csv
+```
+
+---
+
 ## Problem Statement
 
 Most recruitment platforms operate as keyword search engines rather than intelligent decision-support systems.

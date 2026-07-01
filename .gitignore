@@ -48,6 +48,12 @@ Thumbs.db
 *.db
 dev.db
 
+# Challenge dataset / generated submission artifacts
+\[PUB\] India_runs_data_and_ai_challenge/
+__MACOSX/
+submission.csv
+submission.xlsx
+
 # Frontend / Node artifacts
 node_modules/
 .next/
@@ -56,3 +62,5 @@ coverage/
 
 # Logs
 *.log
+.env.example
+

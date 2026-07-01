@@ -1,6 +1,7 @@
 """Candidate ranking routes."""
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
+from backend.app.auth.dependencies import rate_limit_request, require_request_access
 from backend.app.schemas.common import CandidateDetailResponse
 from backend.app.schemas.export import ExportRequest
 from backend.app.schemas.ranking import DashboardResponse, RankRequest, RankResponse
@@ -10,7 +11,7 @@ from backend.app.services.export_service import ExportService
 from backend.app.services.ranking_service import RankingService
 
 
-router = APIRouter(tags=["ranking"])
+router = APIRouter(tags=["ranking"], dependencies=[Depends(rate_limit_request), Depends(require_request_access)])
 ranking_service = RankingService()
 candidate_service = CandidateService()
 export_service = ExportService()

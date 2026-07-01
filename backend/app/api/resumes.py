@@ -1,11 +1,12 @@
 """Resume ingestion routes."""
-from fastapi import APIRouter, UploadFile
+from fastapi import APIRouter, Depends, UploadFile
 
+from backend.app.auth.dependencies import rate_limit_request, require_request_access
 from backend.app.schemas.resume import UploadResumeResponse
 from backend.app.services.resume_service import ResumeService
 
 
-router = APIRouter(tags=["resumes"])
+router = APIRouter(tags=["resumes"], dependencies=[Depends(rate_limit_request), Depends(require_request_access)])
 service = ResumeService()
 
 
